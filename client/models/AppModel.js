@@ -11,7 +11,11 @@ var AppModel = Backbone.Model.extend({
     the 'this' we use that's actually in the function (this.set('currentSong', song)) would
     end up referring to the window. That's just what happens with all JS events. The handlers end up
     getting called from the window (unless we override it, as we do here). */
+
     //console.log('param: ', params); params access to {library: song librarys}
+    //console.log(this.library); //gives error. 'this' in model does not have access to passedin properties. need to define param
+    //unlike View, View has access to passedin property without defining 'params', define 'params' also work ok
+    console.log(this);
 
     params.library.on('play', function(song) {
       this.set('currentSong', song);

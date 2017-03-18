@@ -28,7 +28,7 @@ var SongQueue = Backbone.Collection.extend({
   },
 
   playNext: function() {
-    this.shift();
+    this.shift(); //calls remove under the hood, therefore also triggers the 'remove' event for songQueueView to update view
     if (this.length >= 1) {
       this.playFirst();
     } else {
